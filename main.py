@@ -99,22 +99,6 @@ def calculateLbpFeatures(image):
 
     return features
 
-import cv2
-import os
-import numpy as np
-from skimage import feature
-from skimage.io import imread
-from skimage.transform import resize
-from skimage.feature import hog
-from skimage import exposure
-
-img = imread('./textures/train/KTH_aluminium_foil/1.jpg')
-
-resized_img = resize(img, (128*4, 64*4))
-print(resized_img.shape)
-fd, hog_image = hog(resized_img, orientations=9, pixels_per_cell=(8, 8), cells_per_block=(2, 2), visualize=True, channel_axis=-1)
-
-exit(0)
 
 prepareImages('textures/train', 'train')
 prepareImages('textures/valid', 'test')
